@@ -1,13 +1,22 @@
 import React from 'react';
 import styles from './Video.module.scss';
+import {motion} from 'framer-motion'
 
 const Video = ({ vid, vtime, id, name }) => {
   return (
-    <div key={id} className={styles['video_container']}>
-      {/*  <h2>{name}</h2> */}
+    <div key={id} className={styles['video-container']}>
+      <motion.div className={styles.overlay}
+        initial={{ width: '100%' }}
+        animate={{ width: '0%' }}
+        transition={{
+          duration: 1, easings: 'ease-in-out',
+          delay: 1
+        }}
+      ></motion.div>
       <iframe
         onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
         style={{
+          position: 'relative',
           height: '368px',
           width: '100%',
           border: 'none',

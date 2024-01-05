@@ -17,11 +17,13 @@ const ImageReveal = ({ title, sub, img }) => {
     tl.to(imageReveal, {
       duration: 1.4,
       width: '0%',
+      opacity: 1,
       ease: Power2.easeInOut,
     });
     tl.from(image.current, {
       duration: 1.4,
       scale: 1.6,
+      opacity: 0,
       ease: Power2.easeInOut,
       delay: -1.4,
     });
@@ -57,21 +59,24 @@ const ImageReveal = ({ title, sub, img }) => {
     };
   }, [title, sub, img]);
 
-  if (!title || !sub || !img) {
-    // If data is not available yet, return null or a loading indicator
+  /* if (!title || !sub || !img) {
+    return null;
+  } */
+  if (!img) {
     return null;
   }
 
   return (
     <div className={styles['image-reveal']}>
-      <h2 ref={text}>{title}</h2>
+      {title !== '' ? <h2 ref={text}>{title}</h2> : ''}
+
+      <div className='overlay' ref={overlayRef}></div>
       <div className={styles.container} ref={container}>
-        <div className='overlay' ref={overlayRef}></div>
         <div className={styles['image-container']}>
           <img ref={image} src={img} alt={title} />
         </div>
       </div>
-      <p ref={text2}>{sub}</p>
+      {sub !== '' ? <p ref={text2}>{sub}</p> : ''}
     </div>
   );
 };

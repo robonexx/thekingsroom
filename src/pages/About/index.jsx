@@ -24,7 +24,7 @@ const About = () => {
      {/*  <h1>THE CREW!</h1> */}
       <div className={styles.tkr}>
         <ImageReveal
-          title='THE KINGS ROOM'
+          title='THE KINGS ROOM CREW'
           sub='A crew of extra ordinary creative minds and artists put together to represent The Kings Room'
           img={`${IMG4}`}
         />

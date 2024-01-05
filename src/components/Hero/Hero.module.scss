@@ -1,41 +1,114 @@
-@use '../../styles/base' as *;
+@use "../../styles/base" as *;
 .hero {
     position: relative;
     width: 100%;
     height: 50vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
 
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+
+    .mobile-welcome {
+        margin: 5rem 0 0;
+        display: block;
+        align-self: flex-start;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        h3 {
+            font-size: $font-size-l;
+        }
+
+        h2 {
+            font-size: $font-size-l;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            @media (min-width: 768px) {
+                font-size: $font-size-xxl;
+            }
+        }
+    }
+
+    .hero-tkr {
+        position: relative;
+        padding: 1rem 0.5rem;
+        margin: 1rem 0 0;
+        width: 100svw;
+        height: fit-content;
+        display: grid;
+        place-content: center;
+
+        @media (min-width: 768px) {
+            position: absolute;
+            top: 0vh;
+            right: 0;
+            z-index: 10;
+            width: 15rem;
+            height: auto;
+        }
+
+        > img {
+            object-position: center center;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
     .headline {
-        position: absolute;
-        display: flex;
+        display: none;
+        padding: 1rem;
+        position: relative;
         flex-direction: column;
-        right: 0;
-        top: 55%;
+        right: auto;
+        left: 0;
+        top: 0%;
         z-index: 2;
         font-family: $font-alt;
         text-shadow: 1px 1px 1px #000;
 
+        @media (min-width: 768px) {
+            position: absolute;
+            display: flex;
+            right: 0;
+            left: auto;
+            top: 55%;
+        }
+
         h3 {
-font-size: $font-size-l;
+            font-size: $font-size-l;
         }
 
         h2 {
-            font-size: $font-size-xxl;
+            font-size: $font-size-l;
             font-weight: 800;
             letter-spacing: 2px;
-        }
 
+            @media (min-width: 768px) {
+                font-size: $font-size-xxl;
+            }
+        }
     }
 
     .video-wrapper {
         position: relative;
-        top: 0;
+        top: 10vh;
         right: 0;
         left: auto;
-        width: 50vw;
-        height: 40vh;     
+        width: 100svw;
+        height: auto;
         border-radius: 5px;
         filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.1));
+
+        @media (min-width: 768px) {
+            top: 0;
+            width: 50vw;
+            height: 40vh;
+        }
     }
 }

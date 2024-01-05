@@ -11,11 +11,17 @@
     }
 
     .tkr {
-        margin: 5rem 0;
+        margin: 5rem auto;
         width: 100%;
         display: grid;
         place-content: center;
         height: 100vh;
+
+        @media (min-width: 768px) {
+            width: 30vw;
+            height: auto;
+          
+        }
 
         > img {
             object-position: center center;
