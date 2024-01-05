@@ -1,9 +1,22 @@
-import styles from './Header.module.scss'
+import { AiOutlineHome } from 'react-icons/ai';
+import { MdOutlinePersonPin, MdOutlineAlternateEmail } from 'react-icons/md';
 
-const Header = () => {
+import Nav from '../Nav';
+import NavItem from '../Nav/NavItem';
+import styles from './Header.module.scss';
+
+const Header = ({ children }) => {
   return (
-    <header className={styles.header}>Header</header>
-  )
-}
+    <header className={styles.header}>
+      <Nav>
+        <NavItem title='Home' url='/' icon={<AiOutlineHome />} />
+        <NavItem title='About' url='' icon={<MdOutlinePersonPin />} />
+        <NavItem title='Contact' url='' icon={<MdOutlineAlternateEmail />} />
+      </Nav>
+      <div className={styles['logo-container']}>logo</div>
+      <div className={styles['search-container']}>search</div>
+    </header>
+  );
+};
 
-export default Header
+export default Header;

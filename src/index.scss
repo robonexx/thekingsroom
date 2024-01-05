@@ -1,3 +1,4 @@
+@use './styles/base' as *;
 *,
 *:before,
 *:after {
@@ -113,3 +114,82 @@ input {
   border-radius: 0;
 }
 
+// fonts
+
+h1 {
+  font-size: 3.5rem;
+  
+  @media screen and (max-width: 1185px) {
+    font-size: 2.5rem;
+  }
+  
+    @media screen and (max-width: 960px) {
+      font-size: 2rem;
+  }
+  
+  @media screen and (max-width: 40em) {
+    font-size: 1.6rem;
+  }
+  }
+  
+  
+    h2 {
+      font-family: $font-base;
+      font-size: 2rem;
+  
+      @media screen and (max-width: 960px) {
+        font-size: 1.5rem;
+    }
+  
+    @media screen and (max-width: 40em) {
+      font-size: 1rem;
+    }
+  }
+  
+    
+    h3 {
+      font-size: 1.5rem;
+  
+      @media screen and (max-width: 960px) {
+       
+    }
+    @media screen and (max-width: 40em) {
+      font-size: 1rem;
+    }
+    }
+  
+    h3 {
+      font-size: $font-size-base;
+  
+      @media screen and (max-width: 960px) {
+       font-size: $font-size-base * 0.95;
+    }
+    @media screen and (max-width: 40em) {
+      font-size: $font-size-s;
+    }
+    }
+  
+    
+    p {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+      color: $color-client-3;
+  
+      @media screen and (max-width: 960px) {
+       font-size: 1rem;
+       line-height: 1.1rem;
+      }
+  
+      @media screen and (max-width: 40em) {
+          font-size: $font-size-base;
+          line-height: 1.2rem;
+         
+    }
+    }
+  
+    @media (prefers-color-scheme: dark) {
+      html {
+        color-scheme: dark;
+      }
+    }
+  
