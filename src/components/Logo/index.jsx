@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import styles from './Logo.module.scss'
 
 const Logo = () => {
   return (
-    <div className={styles.logo}>
+    <Link className={styles.logo} to='/'>
       <img src='/tkr-no-bg.png' alt='the kings room logo' />
-    </div>
+    </Link>
   );
 };
 
