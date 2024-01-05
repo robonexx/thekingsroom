@@ -6,6 +6,7 @@ import styles from './ImageReveal.module.scss';
 const ImageReveal = ({ title, sub, img }) => {
   const image = useRef(null);
   const container = useRef(null);
+  const wrapper = useRef(null);
   const overlayRef = useRef(null);
   const text = useRef(null);
   const text2 = useRef(null);
@@ -13,6 +14,13 @@ const ImageReveal = ({ title, sub, img }) => {
   useEffect(() => {
     const imageReveal = overlayRef.current;
     const tl = gsap.timeline();
+    tl.from(wrapper.current, {
+      duration: 1.4,
+      scale: 1.6,
+      opacity: 0,
+      ease: Power2.easeInOut,
+      delay: -1.4,
+    });
     tl.to(container.current, { opacity: 1 });
     tl.to(imageReveal, {
       duration: 1.4,
@@ -20,10 +28,10 @@ const ImageReveal = ({ title, sub, img }) => {
       opacity: 1,
       ease: Power2.easeInOut,
     });
-    tl.from(image.current, {
+    tl.to(image.current, {
       duration: 1.4,
-      scale: 1.6,
-      opacity: 0,
+      scale: 1,
+      opacity: 1,
       ease: Power2.easeInOut,
       delay: -1.4,
     });
@@ -67,7 +75,7 @@ const ImageReveal = ({ title, sub, img }) => {
   }
 
   return (
-    <div className={styles['image-reveal']}>
+    <div className={styles['image-reveal']} ref={wrapper}>
       {title !== '' ? <h2 ref={text}>{title}</h2> : ''}
 
       <div className='overlay' ref={overlayRef}></div>
