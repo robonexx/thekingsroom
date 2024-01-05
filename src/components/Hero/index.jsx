@@ -1,6 +1,6 @@
 import Video from '../VideoContainer/Video';
 import styles from './Hero.module.scss';
-import { videoData } from '../../assets/images/Data';
+import { videoData } from '../../assets/Data';
 
 const Hero = () => {
   const { vid, vtime, id, name } = videoData[0];

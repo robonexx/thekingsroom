@@ -1,12 +1,13 @@
-import Hero from '../../components/Hero'
-import styles from './Home.module.scss'
+import Hero from '../../components/Hero';
+import styles from './Home.module.scss';
+
 
 const Home = () => {
   return (
     <div className={styles.home}>
-     <Hero />
+      <Hero />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
