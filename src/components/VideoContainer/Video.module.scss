@@ -1,0 +1,42 @@
+.video-container {
+    position: relative;
+    margin: 0 0 10rem;
+    padding-top: 10vh;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    border-radius: 5px;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 20vh;
+      }
+
+      h2 {
+        background-color: black;
+        margin: 1rem auto;
+        width: 90%;
+        font-family: $font-headline;
+        text-transform: uppercase;
+    
+    
+        @media screen and (min-width: 768px) {
+          width: 60%;
+        }
+      }
+    
+      // video
+      .video {
+        margin: 1rem 0;
+        width: 90%;
+        height: 40vh;
+        border-radius: 5px;
+    
+    
+        @media screen and (min-width: 768px) {
+          width: 60%;
+        }
+      }
+}

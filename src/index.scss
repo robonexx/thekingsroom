@@ -67,6 +67,8 @@ video {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
+  font-family: $font-default;
+  font-family: $font-base;
 }
 
 footer,
@@ -79,7 +81,7 @@ main {
 
 body {
   line-height: 1;
-  background-color: #f8f8f8;
+  background-color: $color-bg;
 }
 
 main {
