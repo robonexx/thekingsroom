@@ -2,6 +2,8 @@
 *,
 *:before,
 *:after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -77,7 +79,7 @@ main {
 
 body {
   line-height: 1;
-  background-color: #080808;
+  background-color: #f8f8f8;
 }
 
 main {

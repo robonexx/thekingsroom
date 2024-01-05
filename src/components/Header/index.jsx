@@ -10,8 +10,8 @@ const Header = ({ children }) => {
     <header className={styles.header}>
       <Nav>
         <NavItem title='Home' url='/' icon={<AiOutlineHome />} />
-        <NavItem title='About' url='' icon={<MdOutlinePersonPin />} />
-        <NavItem title='Contact' url='' icon={<MdOutlineAlternateEmail />} />
+        <NavItem title='About' url='/about' icon={<MdOutlinePersonPin />} />
+        <NavItem title='Contact' url='/contact' icon={<MdOutlineAlternateEmail />} />
       </Nav>
       <div className={styles['logo-container']}>logo</div>
       <div className={styles['search-container']}>search</div>
