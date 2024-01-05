@@ -1,7 +1,8 @@
+@use '../../styles/base/' as *;
 .header {
     width: 100%;
     height: 5rem;
-    background-color: black;
+    background-color: $color-bg;
     color: white;
     display: flex;
     align-items: center;
