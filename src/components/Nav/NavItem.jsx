@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from './Navbar.module.scss';
+import { Link } from 'react-router-dom';
 
 export default function NavItem({ title, url, icon, children }) {
   const [click, setClick] = useState(false);
@@ -47,10 +48,10 @@ export default function NavItem({ title, url, icon, children }) {
       onTouchStart={onTouchS}
       onTouchEnd={onTouchE}
     >
-      <a href={url} onClick={closeMobileMenu} className={`${styles.nav_links}`}>
+      <Link to={url} onClick={closeMobileMenu} className={`${styles.nav_links}`}>
         {icon ? <span className={`${styles.link_icon}`}>{icon}</span> : ''}
         <span className={styles.link_title}>{title}</span>
-      </a>
+      </Link>
       {dropdown && children}
       {click && children}
     </li>

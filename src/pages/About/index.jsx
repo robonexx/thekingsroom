@@ -29,10 +29,10 @@ const About = () => {
           img={`${IMG4}`}
         />
         <ul className={styles.socials}>
-          <Link href=' https://www.instagram.com/thekingsroom1/'>
+          <Link to=' https://www.instagram.com/thekingsroom1/'>
             <RiInstagramLine />
           </Link>
-          <Link href='https://soundcloud.com/thekingsroom1/the-kings-room-show-2021-episode-2?ref=clipboard&p=a&c=0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'>
+          <Link to='https://soundcloud.com/thekingsroom1/the-kings-room-show-2021-episode-2?ref=clipboard&p=a&c=0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'>
             <RiSoundcloudLine />
           </Link>
         </ul>
@@ -45,10 +45,10 @@ const About = () => {
             img={`${IMG}`}
           />
           <ul className={styles.socials}>
-            <Link href='https://www.instagram.com/marcio_ratinho/'>
+            <Link to='https://www.instagram.com/marcio_ratinho/'>
               <RiInstagramLine />
             </Link>
-            <Link href=''></Link>
+            <Link to=''></Link>
           </ul>
         </div>
         <div className={styles['crew-member']}>
@@ -58,16 +58,16 @@ const About = () => {
             img={`${IMG2}`}
           />
           <ul className={styles.socials}>
-            <Link href='https://www.instagram.com/djcombat/'>
+            <Link to='https://www.instagram.com/djcombat/'>
               <RiInstagramLine />
             </Link>
-            <Link href='https://open.spotify.com/artist/2jqZwHsTQifJuEhBAMbwhZ?si=SLuPfogbSXidnmEcl0KNWw&nd=1&dlsi=bd2a68f703eb4dfc'>
+            <Link to='https://open.spotify.com/artist/2jqZwHsTQifJuEhBAMbwhZ?si=SLuPfogbSXidnmEcl0KNWw&nd=1&dlsi=bd2a68f703eb4dfc'>
               <RiSpotifyLine />
             </Link>
-            <Link href='https://djcombat8.bandcamp.com/album/sounds-of-2023'>
+            <Link to='https://djcombat8.bandcamp.com/album/sounds-of-2023'>
               <TbBrandBandcamp />
             </Link>
-            <Link href='https://soundcloud.com/djcombat'>
+            <Link to='https://soundcloud.com/djcombat'>
               <RiSoundcloudLine />
             </Link>
           </ul>
@@ -79,10 +79,10 @@ const About = () => {
             img={`${IMG3}`}
           />
           <ul className={styles.socials}>
-            <Link href='https://www.instagram.com/r.o.b_o.n.e/'>
+            <Link to='https://www.instagram.com/r.o.b_o.n.e/'>
               <RiInstagramLine />
             </Link>
-            <Link href=''>
+            <Link to=''>
               <TbBrandBandcamp />
             </Link>
           </ul>
