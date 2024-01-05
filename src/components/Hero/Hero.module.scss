@@ -1,0 +1,41 @@
+@use '../../styles/base' as *;
+.hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+
+    .headline {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        right: 0;
+        top: 55%;
+        z-index: 2;
+        font-family: $font-alt;
+        text-shadow: 1px 1px 1px #000;
+
+        h3 {
+font-size: $font-size-l;
+        }
+
+        h2 {
+            font-size: $font-size-xxl;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+    }
+
+    .video-wrapper {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: auto;
+        width: 50vw;
+        height: 40vh;     
+        border-radius: 5px;
+        filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.1));
+    }
+}
