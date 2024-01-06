@@ -11,7 +11,7 @@ import {
   RiWhatsappLine,
 } from 'react-icons/ri';
 import { TbBrandBandcamp } from 'react-icons/tb';
-
+import {motion} from 'framer-motion'
 import CrewItem from '../../components/CrewItem/CrewItem';
 import styles from './About.module.scss';
 import IMG from '../../assets/images/marcio.jpg';
@@ -22,22 +22,26 @@ import IMG4 from '../../assets/images/tkr-bg.png';
 const About = () => {
   return (
     <div className={styles.about}>
-     {/*  <h1>THE CREW!</h1> */}
-      <div className={styles.tkr}>
-        <CrewItem
-          title='The Kings Room TEAM'
-          sub='A crew of extra ordinary creative minds and artists put together to represent The Kings Room'
-          img={`${IMG4}`}
-        />
-        <ul className={styles.socials}>
-          <Link to=' https://www.instagram.com/thekingsroom1/'>
-            <RiInstagramLine />
-          </Link>
-          <Link to='https://soundcloud.com/thekingsroom1/the-kings-room-show-2021-episode-2?ref=clipboard&p=a&c=0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'>
-            <RiSoundcloudLine />
-          </Link>
-        </ul>
-      </div>
+      <section>
+        <motion.h1
+ initial={{ x: -400, opacity: 0 }}
+ animate={{ x: 0, opacity: 1 }}
+ transition={{
+   duration: 0.5,
+   easings: 'ease-in-out',
+   delay: 0,
+ }}
+        >ABOUT</motion.h1>
+        <motion.p
+         initial={{ height: 0, opacity: 0 }}
+         animate={{ height: 100, opacity: 1 }}
+         transition={{
+           duration: 1,
+           easings: 'ease-in-out',
+           delay: 0.3,
+         }}
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias veritatis quia porro doloremque. Et obcaecati, perspiciatis doloremque perferendis beatae sequi sunt minima! Laborum recusandae tempora eaque aliquid voluptatibus harum, nulla quibusdam eius voluptatem iste officiis obcaecati dolore esse odit accusamus, id deleniti natus deserunt voluptas eum nemo quaerat laboriosam rerum!</motion.p>
+      </section>
       <div className={styles.crew}>
         <div className={styles['crew-member-container']}>
           <CrewItem
@@ -88,6 +92,21 @@ const About = () => {
             </Link>
           </ul>
         </div>
+      </div>
+      <div className={styles.tkr}>
+        <CrewItem
+          title='The Kings Room TEAM'
+          sub='A crew of extra ordinary creative minds and artists put together to represent The Kings Room'
+          img={`${IMG4}`}
+        />
+        <ul className={styles.socials}>
+          <Link to=' https://www.instagram.com/thekingsroom1/'>
+            <RiInstagramLine />
+          </Link>
+          <Link to='https://soundcloud.com/thekingsroom1/the-kings-room-show-2021-episode-2?ref=clipboard&p=a&c=0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'>
+            <RiSoundcloudLine />
+          </Link>
+        </ul>
       </div>
     </div>
   );
