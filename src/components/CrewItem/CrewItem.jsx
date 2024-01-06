@@ -75,7 +75,7 @@ const CrewItem = ({ title, sub, img }) => {
   }
 
   return (
-    <div className={styles['image-reveal']} ref={wrapper}>
+    <div className={styles['crew-member']} ref={wrapper}>
       {title !== '' ? <h2 ref={text}>{title}</h2> : ''}
 
       <div className='overlay' ref={overlayRef}></div>

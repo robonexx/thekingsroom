@@ -5,6 +5,7 @@ import {
   RiInstagramLine,
   RiSpotifyLine,
   RiSoundcloudLine,
+  RiGithubLine,
   RiFacebookBoxLine,
   RiTiktokFill,
   RiWhatsappLine,
@@ -24,7 +25,7 @@ const About = () => {
      {/*  <h1>THE CREW!</h1> */}
       <div className={styles.tkr}>
         <CrewItem
-          title='THE KINGS ROOM CREW'
+          title='The Kings Room TEAM'
           sub='A crew of extra ordinary creative minds and artists put together to represent The Kings Room'
           img={`${IMG4}`}
         />
@@ -38,7 +39,7 @@ const About = () => {
         </ul>
       </div>
       <div className={styles.crew}>
-        <div className={styles['crew-member']}>
+        <div className={styles['crew-member-container']}>
           <CrewItem
             title='Marcio Ratinho'
             sub='Founder and chief-rocka of the kingsroom'
@@ -51,7 +52,7 @@ const About = () => {
             <Link to=''></Link>
           </ul>
         </div>
-        <div className={styles['crew-member']}>
+        <div className={styles['crew-member-container']}>
           <CrewItem
             title='DJ Combat'
             sub='Kingsrooms finest Dj mero mero'
@@ -72,7 +73,7 @@ const About = () => {
             </Link>
           </ul>
         </div>
-        <div className={styles['crew-member']}>
+        <div className={styles['crew-member-container']}>
           <CrewItem
             title='Rob-One'
             sub='Creative design and art director'
@@ -82,8 +83,8 @@ const About = () => {
             <Link to='https://www.instagram.com/r.o.b_o.n.e/'>
               <RiInstagramLine />
             </Link>
-            <Link to=''>
-              <TbBrandBandcamp />
+            <Link to='https://github.com/robonexx'>
+              <RiGithubLine />
             </Link>
           </ul>
         </div>
