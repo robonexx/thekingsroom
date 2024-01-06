@@ -1,12 +1,13 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 import NavButton from '../NavButton/';
 
 // styles
 import styles from './Navbar.module.scss';
+import Logo from '../Logo';
 
- const Nav  = (props) => {
+const Nav = (props) => {
   const [click, setClick] = useState(false);
   const [navActive, setNavActive] = useState(false);
 
@@ -15,6 +16,10 @@ import styles from './Navbar.module.scss';
     setNavActive(!click);
   };
 
+  const closeMobileMenu = useCallback(() => {
+    setClick(false);
+    setNavActive(false); // Reset navActive state
+  }, []);
   const navRef = useRef();
 
   useEffect(() => {
@@ -35,12 +40,15 @@ import styles from './Navbar.module.scss';
         }
         prevScrollpos = currentScrollPos;
       };
+
       window.addEventListener('scroll', handleScroll);
+
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };
     }
   }, []);
+
 
   return (
     <nav className={styles.navbar} ref={navRef}>
@@ -52,10 +60,19 @@ import styles from './Navbar.module.scss';
           click ? `${styles.nav_menu} ${styles.active}` : `${styles.nav_menu}`
         }
       >
-        {props.children}
+        {props.children.map((child, index) => (
+          React.cloneElement(child, {
+            key: index,
+            navActive: navActive,
+            closeMobileMenu: closeMobileMenu,
+          })
+        ))}
+        <div className={styles['mobile-logo']}>
+          <Logo />
+        </div>
       </ul>
     </nav>
   );
-}
+};
 
-export default Nav
+export default Nav;

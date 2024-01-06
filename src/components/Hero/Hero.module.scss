@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: $font-alt;
 
     @media (min-width: 768px) {
         flex-direction: row;
@@ -37,7 +38,7 @@
 
     .hero-tkr {
         position: relative;
-        padding: 1.75rem 0.5rem 1rem;
+        padding: 2rem;
         margin: 1rem 0 0;
         width: 100svw;
         height: fit-content;
@@ -69,7 +70,6 @@
         left: 0;
         top: 0%;
         z-index: 2;
-        font-family: $font-alt;
         text-shadow: 1px 1px 1px #000;
 
         @media (min-width: 768px) {
@@ -98,12 +98,9 @@
     .video-wrapper {
         position: relative;
         top: 10vh;
-        right: 0;
-        left: auto;
         width: 100svw;
-        height: auto;
+        height: 360px;
         border-radius: 5px;
-        filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.1));
 
         @media (min-width: 768px) {
             top: 0;

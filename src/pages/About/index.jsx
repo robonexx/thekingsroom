@@ -11,7 +11,7 @@ import {
 } from 'react-icons/ri';
 import { TbBrandBandcamp } from 'react-icons/tb';
 
-import ImageReveal from '../../components/ImageReveal/ImageReveal';
+import CrewItem from '../../components/CrewItem/CrewItem';
 import styles from './About.module.scss';
 import IMG from '../../assets/images/marcio.jpg';
 import IMG2 from '../../assets/images/djcombat.jpg';
@@ -23,7 +23,7 @@ const About = () => {
     <div className={styles.about}>
      {/*  <h1>THE CREW!</h1> */}
       <div className={styles.tkr}>
-        <ImageReveal
+        <CrewItem
           title='THE KINGS ROOM CREW'
           sub='A crew of extra ordinary creative minds and artists put together to represent The Kings Room'
           img={`${IMG4}`}
@@ -39,7 +39,7 @@ const About = () => {
       </div>
       <div className={styles.crew}>
         <div className={styles['crew-member']}>
-          <ImageReveal
+          <CrewItem
             title='Marcio Ratinho'
             sub='Founder and chief-rocka of the kingsroom'
             img={`${IMG}`}
@@ -52,7 +52,7 @@ const About = () => {
           </ul>
         </div>
         <div className={styles['crew-member']}>
-          <ImageReveal
+          <CrewItem
             title='DJ Combat'
             sub='Kingsrooms finest Dj mero mero'
             img={`${IMG2}`}
@@ -73,7 +73,7 @@ const About = () => {
           </ul>
         </div>
         <div className={styles['crew-member']}>
-          <ImageReveal
+          <CrewItem
             title='Rob-One'
             sub='Creative design and art director'
             img={`${IMG3}`}

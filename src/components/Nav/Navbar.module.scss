@@ -1,3 +1,5 @@
+// this is done desktop first... 
+
 @use "../../styles/base" as *;
 .navbar {
   position: relative;
@@ -32,9 +34,13 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   list-style: none;
   text-align: center;
+
+  .mobile-logo {
+    display: none;
+  }
 }
 
 .nav_item {
@@ -64,6 +70,8 @@ a .mobile {
 }
 
 .menu_icon {
+  width: fit-content;
+  height: fit-content;
   display: none;
   cursor: pointer;
   -webkit-touch-callout: none;
@@ -141,7 +149,7 @@ a .mobile {
 @media screen and (max-width: 960px) {
   .navbar {
     position: fixed;
-    top: 54px;
+    top: 0;
     right: 0;
     left: auto;
   }
@@ -155,7 +163,6 @@ a .mobile {
     justify-content: center;
     z-index: 1100;
     cursor: pointer;
-    padding: 1.25rem 0.25rem;
     border-radius: 50%;
     background-color: $color-bg;
     outline: none;
@@ -177,7 +184,7 @@ a .mobile {
 
   .nav_menu {
     position: fixed;
-    top: 54px;
+    top: 0;
     bottom: 0;
     width: 100%;
     min-height: 100%;
@@ -207,7 +214,7 @@ a .mobile {
 
   .nav_menu.active {
     position: fixed;
-    top: 54px;
+    top: 0;
     right: 0;
     left: 0;
     width: 100%;
@@ -226,6 +233,12 @@ a .mobile {
 
 @media screen and (max-width: 768px) {
   .nav_menu {
+    .mobile-logo {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      z-index: 1000;
+    }
     .nav_item {
       left: 10vw;
 

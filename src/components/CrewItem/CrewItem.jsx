@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { Power2 } from 'gsap/all';
-import styles from './ImageReveal.module.scss';
+import styles from './CrewItem.module.scss';
 
-const ImageReveal = ({ title, sub, img }) => {
+const CrewItem = ({ title, sub, img }) => {
   const image = useRef(null);
   const container = useRef(null);
   const wrapper = useRef(null);
@@ -89,4 +89,4 @@ const ImageReveal = ({ title, sub, img }) => {
   );
 };
 
-export default ImageReveal;
+export default CrewItem;

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from './Navbar.module.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function NavItem({ title, url, icon, children }) {
-  const [click, setClick] = useState(false);
+const NavItem = ({ title, url, icon, children, navActive, closeMobileMenu }) => {
   const [dropdown, setDropdown] = useState(false);
 
   const onMouseEnter = () => {
@@ -35,25 +34,27 @@ export default function NavItem({ title, url, icon, children }) {
     }
   };
 
-  const closeMobileMenu = useCallback(() => {
-    setClick(false);
-  }, []);
+  const closeMobileMenuAndReset = () => {
+    closeMobileMenu();
+    setDropdown(false);
+  };
 
   return (
     <li
-      className={styles.nav_item}
+      className={`${styles.nav_item} ${navActive ? styles.navActive : ''}`}
       key={title}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onTouchStart={onTouchS}
       onTouchEnd={onTouchE}
     >
-      <Link to={url} onClick={closeMobileMenu} className={`${styles.nav_links}`}>
+      <NavLink to={url} onClick={closeMobileMenuAndReset} className={`${styles.nav_links}`}>
         {icon ? <span className={`${styles.link_icon}`}>{icon}</span> : ''}
         <span className={styles.link_title}>{title}</span>
-      </Link>
+      </NavLink>
       {dropdown && children}
-      {click && children}
     </li>
   );
 }
+
+export default NavItem

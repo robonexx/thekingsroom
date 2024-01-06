@@ -21,7 +21,7 @@ const Header = ({ children }) => {
       <div className={styles['logo-container']}>
         <Logo />
       </div>
-      <div className={styles['search-container']}>search</div>
+      <div className={styles['search-container']}></div>
     </header>
   );
 };

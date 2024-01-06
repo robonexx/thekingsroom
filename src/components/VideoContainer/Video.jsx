@@ -26,7 +26,6 @@ const Video = ({ vid, vtime, id, name }) => {
         title={`video of ${name}`}
         type='text/html'
         src={`https://www.youtube-nocookie.com/embed/${vid}?start=${vtime}&modestbranding=1&controls=1&autoplay=1&loop=1&mute=1`}
-        frameborder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;'
         loop='loop'
         muted='muted'

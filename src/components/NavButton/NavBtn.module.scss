@@ -2,8 +2,7 @@
     position: relative;
     width: fit-content;
     margin-left: auto;
-    padding: 0.5rem 0.5rem;
-    margin-right: 2rem;
+    margin-right: 1rem;
     z-index: 1000;
     cursor: pointer;
     outline: none;
@@ -21,8 +20,8 @@
 
 .line {
     position: absolute;
-    left: 0.75rem;
-    width: 1.5rem;
+    left: 1rem;
+    width: 1rem;
     height: 1px;
     background-color: rgb(255, 255, 255);
     transition: all 0.4s cubic-bezier(0.75, 0.2, 0.05, 1);
@@ -41,20 +40,19 @@
     width: 1rem;
     height: 1px;
     background-color: rgb(255, 255, 255);
-    transform: translateY(-0.5rem) translateX(-0.25rem);
+    transform: translateY(-0.5rem) translateX(-0rem);
 }
 .line::after {
     content: "";
     position: absolute;
-    width: 2rem;
+    width: 1rem;
     height: 1px;
     background-color: rgb(255, 255, 255);
-    transform: translateY(0.5rem) translateX(-1.25rem);
+    transform: translateY(0.5rem) translateX(-1rem);
 }
 
 .navBtn.open {
     margin-left: auto;
-    margin-right: 2rem;
     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -62,17 +60,17 @@
     width: inherit;
     position: absolute;
     background-color: transparent;
-    left: 0.5rem;
+    left: 1rem;
 }
 
 .navBtn.open .line::before {
-    width: 2rem;
+    width: 1.25rem;
     transform: rotate(45deg);
     animation: line2 0.4s ease;
 }
 
 .navBtn.open .line::after {
-    width: 2rem;
+    width: 1.25rem;
     transform: rotate(-45deg);
     animation: line3 0.4s ease;
 }

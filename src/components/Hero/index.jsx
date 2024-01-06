@@ -5,7 +5,7 @@ import { videoData } from '../../assets/Data';
 import Video from '../VideoContainer/Video';
 import IMG4 from '../../assets/images/tkr-bg.png';
 import styles from './Hero.module.scss';
-import ImageReveal from '../ImageReveal/ImageReveal';
+import ImageReveal from '../CrewItem/CrewItem';
 
 const Hero = () => {
   /*  const [windowWidth, setWindowWidth] = useState(window.innerWidth); */
@@ -71,7 +71,7 @@ const Hero = () => {
         >
           Welcome to -
         </motion.h3>
-        <motion.h2
+        <motion.h1
           initial={{ x: 400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -81,9 +81,11 @@ const Hero = () => {
           }}
         >
           THE KINGS ROOM
-        </motion.h2>
+        </motion.h1>
       </div>
+     
       <div className={styles['video-wrapper']}>
+      <h3>Marcio Ratinho - Chief-Rocka</h3>
         <Video vid={vid} vtime={vtime} id={id} name={name} />
       </div>
     </div>
