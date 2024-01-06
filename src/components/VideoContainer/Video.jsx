@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 
 const Video = ({ vid, vtime, id, name }) => {
   return (
-    <div key={id} className={styles['video-container']}>
+    <div key={id} className={styles['video-responsive']}>
       <motion.div className={styles.overlay}
         initial={{ width: '100%' }}
         animate={{ width: '0%' }}
@@ -14,23 +14,15 @@ const Video = ({ vid, vtime, id, name }) => {
         }}
       ></motion.div>
       <iframe
-        onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
-        style={{
-          position: 'relative',
-          height: '368px',
-          width: '100%',
-          border: 'none',
-          overflow: 'hidden',
-          borderRadius: '15px',
-        }}
-        title={`video of ${name}`}
-        type='text/html'
+        width="853"
+        height="480"
         src={`https://www.youtube-nocookie.com/embed/${vid}?start=${vtime}&modestbranding=1&controls=1&autoplay=1&loop=1&mute=1`}
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;'
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         loop='loop'
         muted='muted'
         allowFullScreen='allowfullscreen'
         autoPlay='autoplay'
+        title="Embedded youtube"
       ></iframe>
     </div>
   );
