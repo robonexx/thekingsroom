@@ -14,6 +14,7 @@ const Video = ({ vid, vtime, id, name }) => {
         }}
       ></motion.div>
       <iframe
+        className={styles.video}
         width="853"
         height="480"
         src={`https://www.youtube-nocookie.com/embed/${vid}?start=${vtime}&modestbranding=1&controls=1&autoplay=1&loop=1&mute=1`}

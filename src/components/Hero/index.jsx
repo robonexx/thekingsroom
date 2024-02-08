@@ -29,7 +29,6 @@ const Hero = () => {
     <div className={styles.hero}>
       <div className={styles['mobile-welcome']}>
       <motion.h3
-        className={styles['mobile-welcome']}
         initial={{ y: -400, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
