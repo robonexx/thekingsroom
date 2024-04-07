@@ -1,0 +1,36 @@
+@use '../../styles/base/' as *;
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    padding: 46px 112px;
+
+    @media screen and (max-width: 960px) {
+       padding: 46px 112px;
+       }
+   
+       @media screen and (max-width: 40em) {
+          padding: 46px;
+          
+     }
+
+    h2 span {
+      
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+            color: $color-client-3;
+        
+            @media screen and (max-width: 960px) {
+             font-size: 1rem;
+             line-height: 1.1rem;
+            }
+        
+            @media screen and (max-width: 40em) {
+                font-size: $font-size-base;
+                line-height: 1.2rem;
+               
+          }
+    }
+
+}
