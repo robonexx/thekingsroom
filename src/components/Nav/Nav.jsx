@@ -1,7 +1,7 @@
 import Logo from '../Logo';
 import styles from './Nav.module.scss';
 
-export default function Nav({ children, active }) {
+const Nav = ({ children, active }) => {
   return (
     <nav className={styles['nav']}>
       <ul className={`${styles.menu} ${active ? styles.open : ''}`}>
@@ -13,4 +13,6 @@ export default function Nav({ children, active }) {
       </ul>
     </nav>
   );
-}
+};
+
+export default Nav;
