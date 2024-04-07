@@ -33,7 +33,7 @@ const About = () => {
             delay: 0,
           }}
         >
-          ABOUT
+          The Team
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

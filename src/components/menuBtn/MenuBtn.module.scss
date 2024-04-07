@@ -1,0 +1,73 @@
+@use '../../styles/base/' as *;
+/* ========== HAMBURGER NAV BUTTON ====================== */
+.hamburger_wrapper {
+  position: fixed;
+  top: 2vh;
+  right: 1rem;
+  bottom: auto;
+  left: auto;
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-content: center;
+  color: $color-client-1;
+  background: $color-client-menu;
+  overflow: hidden;
+  z-index: 1002;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.286));
+  border: 1px solid $color-client-5;
+  border-radius: 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 6rem;
+    height: 6rem;
+    top: 3.25rem;
+    right: 0;
+    border: none;
+    display: none;
+  }
+}
+
+.bg_color {
+  color: $color-client-5;
+  background: $color-client-1;
+  border: 1px solid $color-client-5;
+
+  @media screen and (min-width: 768px) {
+    border: none;
+  }
+}
+
+.hamburger {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+  }
+}
+
+.hamburger span {
+  position: relative;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  z-index: 1001;
+}
+
+.hamburger.active {
+  -webkit-filter: drop-shadow(2px 2px 1px rgba(235, 235, 235, 0.225));
+  filter: drop-shadow(0px 2px 5px rgba(19, 19, 19, 0.596));
+}
+
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}

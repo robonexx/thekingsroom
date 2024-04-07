@@ -1,27 +1,32 @@
+import { useState, useEffect } from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { MdOutlinePersonPin, MdOutlineAlternateEmail } from 'react-icons/md';
 
-import Nav from '../Nav';
-import NavItem from '../Nav/NavItem';
 import styles from './Header.module.scss';
 import Logo from '../Logo';
+import Nav from '../nav/Nav';
+import NavItem from '../nav/NavItem';
+import MenuBtn from '../menuBtn/MenuBtn';
+import { navData } from '../../assets/Data';
 
-const Header = ({ children }) => {
+const Header = () => {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    setActive(false);
+  }, []);
+
   return (
     <header className={styles.header}>
-      <Nav>
-        <NavItem title='Home' url='/' icon={<AiOutlineHome />} />
-        <NavItem title='About' url='/about' icon={<MdOutlinePersonPin />} />
-        <NavItem
-          title='Contact'
-          url='/contact'
-          icon={<MdOutlineAlternateEmail />}
-        />
-      </Nav>
       <div className={styles['logo-container']}>
         <Logo />
       </div>
-      <div className={styles['search-container']}></div>
+      <MenuBtn active={active} setActive={setActive} />
+      <Nav active={active}>
+        {navData.map(({ title, path, id }, i) => (
+          <NavItem title={title} path={path} key={id} i={i} />
+        ))}
+      </Nav>
     </header>
   );
 };

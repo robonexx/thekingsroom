@@ -1,60 +1,23 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import styles from './Navbar.module.scss';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-const NavItem = ({ title, url, icon, children, navActive, closeMobileMenu }) => {
-  const [dropdown, setDropdown] = useState(false);
+// styles
+import styles from './NavItem.module.scss';
 
-  const onMouseEnter = () => {
-    setDropdown((prev) => !prev);
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 300) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
-  const onTouchS = () => {
-    if (window.innerWidth < 300) {
-      setDropdown(true);
-    } else {
-      setDropdown(true);
-    }
-    setDropdown((prev) => !prev);
-  };
-
-  const onTouchE = () => {
-    if (window.innerWidth < 300) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
-  const closeMobileMenuAndReset = () => {
-    closeMobileMenu();
-    setDropdown(false);
-  };
-
+const NavItem = ({ title, path, id, i }) => {
   return (
-    <li
-      className={`${styles.nav_item} ${navActive ? styles.navActive : ''}`}
-      key={title}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onTouchStart={onTouchS}
-      onTouchEnd={onTouchE}
+    <motion.li
+      className={styles.nav_item}
+      key={id}
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: i * 0.2 }}
     >
-      <NavLink to={url} onClick={closeMobileMenuAndReset} className={`${styles.nav_links}`}>
-        {icon ? <span className={`${styles.link_icon}`}>{icon}</span> : ''}
-        <span className={styles.link_title}>{title}</span>
-      </NavLink>
-      {dropdown && children}
-    </li>
+      <Link className={styles['nav_link']} to={path}>
+        {title}
+      </Link>
+    </motion.li>
   );
-}
+};
 
-export default NavItem
+export default NavItem;
