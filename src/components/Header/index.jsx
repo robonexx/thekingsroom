@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AiOutlineHome } from 'react-icons/ai';
-import { MdOutlinePersonPin, MdOutlineAlternateEmail } from 'react-icons/md';
-
+import { useLocation } from 'react-router-dom';
 import styles from './Header.module.scss';
 import Logo from '../Logo';
 import Nav from '../nav/Nav';
@@ -11,10 +9,11 @@ import { navData } from '../../assets/Data';
 
 const Header = () => {
   const [active, setActive] = useState(false);
-
+  const location = useLocation();
+  
   useEffect(() => {
     setActive(false);
-  }, []);
+  }, [location]);
 
   return (
     <header className={styles.header}>

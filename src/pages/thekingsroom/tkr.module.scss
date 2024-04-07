@@ -4,14 +4,14 @@
     display: flex;
     flex-direction: column;
     gap: 46px;
-    padding: 46px 112px;
+    padding: 200px 112px;
 
     @media screen and (max-width: 960px) {
-       padding: 46px 112px;
+       padding: 120px 112px;
        }
    
        @media screen and (max-width: 40em) {
-          padding: 46px;
+          padding: 100px 46px;
           
      }
 
