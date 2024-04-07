@@ -44,12 +44,12 @@ const About = () => {
             delay: 0.3,
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-          veritatis quia porro doloremque. Et obcaecati, perspiciatis doloremque
-          perferendis beatae sequi sunt minima! Laborum recusandae tempora eaque
-          aliquid voluptatibus harum, nulla quibusdam eius voluptatem iste
-          officiis obcaecati dolore esse odit accusamus, id deleniti natus
-          deserunt voluptas eum nemo quaerat laboriosam rerum!
+          A collective of creative artists, an entertainment collective, radio
+          shows, live events and workshops in dance and dj:ing. The Kings Room is a
+          platform with new and experienced artists, where all together work to
+          provide the best quality in music and dance. Our goal is to lead a
+          team that raises the finests sides of the Urban culture by inspiring
+          everyone around us.
         </motion.p>
       </section>
       <div className={styles.crew}>
@@ -60,10 +60,14 @@ const About = () => {
             img={`${IMG}`}
           />
           <ul className={styles.socials}>
-            <Link to='https://www.instagram.com/marcio_ratinho/' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://www.instagram.com/marcio_ratinho/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <RiInstagramLine />
             </Link>
-            <Link to='' rel="noopener noreferrer"></Link>
+            <Link to='' rel='noopener noreferrer'></Link>
           </ul>
         </div>
         <div className={styles['crew-member-container']}>
@@ -73,16 +77,20 @@ const About = () => {
             img={`${IMG2}`}
           />
           <ul className={styles.socials}>
-            <Link to='https://www.instagram.com/djcombat/' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://www.instagram.com/djcombat/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <RiInstagramLine />
             </Link>
-            <Link to='#' target="_blank" rel="noopener noreferrer">
+            <Link to='#' target='_blank' rel='noopener noreferrer'>
               <RiSpotifyLine />
             </Link>
-            <Link to='#' target="_blank" rel="noopener noreferrer">
+            <Link to='#' target='_blank' rel='noopener noreferrer'>
               <TbBrandBandcamp />
             </Link>
-            <Link to='#' target="_blank" rel="noopener noreferrer">
+            <Link to='#' target='_blank' rel='noopener noreferrer'>
               <RiSoundcloudLine />
             </Link>
           </ul>
@@ -94,16 +102,32 @@ const About = () => {
             img={`${IMG5}`}
           />
           <ul className={styles.socials}>
-            <Link to='https://www.instagram.com/djstew_lsc/' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://www.instagram.com/djstew_lsc/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <RiInstagramLine />
             </Link>
-            <Link to='https://open.spotify.com/artist/2jqZwHsTQifJuEhBAMbwhZ?si=SLuPfogbSXidnmEcl0KNWw&nd=1&dlsi=bd2a68f703eb4dfc' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://open.spotify.com/artist/2jqZwHsTQifJuEhBAMbwhZ?si=SLuPfogbSXidnmEcl0KNWw&nd=1&dlsi=bd2a68f703eb4dfc'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <RiSpotifyLine />
             </Link>
-            <Link to='https://djcombat8.bandcamp.com/album/sounds-of-2023' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://djcombat8.bandcamp.com/album/sounds-of-2023'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <TbBrandBandcamp />
             </Link>
-            <Link to='https://soundcloud.com/djcombat' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://soundcloud.com/djcombat'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <RiSoundcloudLine />
             </Link>
           </ul>
@@ -115,10 +139,18 @@ const About = () => {
             img={`${IMG3}`}
           />
           <ul className={styles.socials}>
-            <Link to='https://www.instagram.com/r.o.b_o.n.e/' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://www.instagram.com/r.o.b_o.n.e/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <RiInstagramLine />
             </Link>
-            <Link to='https://github.com/robonexx' target="_blank" rel="noopener noreferrer">
+            <Link
+              to='https://github.com/robonexx'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <RiGithubLine />
             </Link>
           </ul>
@@ -131,10 +163,18 @@ const About = () => {
           img={`${IMG4}`}
         />
         <ul className={styles.socials}>
-          <Link to=' https://www.instagram.com/thekingsroom1/' target="_blank" rel="noopener noreferrer">
+          <Link
+            to=' https://www.instagram.com/thekingsroom1/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <RiInstagramLine />
           </Link>
-          <Link to='https://soundcloud.com/thekingsroom1/the-kings-room-show-2021-episode-2?ref=clipboard&p=a&c=0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' target="_blank" rel="noopener noreferrer">
+          <Link
+            to='https://soundcloud.com/thekingsroom1/the-kings-room-show-2021-episode-2?ref=clipboard&p=a&c=0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <RiSoundcloudLine />
           </Link>
         </ul>
