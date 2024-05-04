@@ -57,7 +57,7 @@ export const teamMembersData = [
     socials: [
       { icon: 'RiInstagramLine', link: 'https://www.instagram.com/thekingsroom1/' },
       { icon: 'RiSoundcloudLine', link: 'https://soundcloud.com/thekingsroom1/' },
-      { icon: 'RiFacebookBoxLine', link: 'https://www.facebook.com/thekingsroomofficial' },
+      { icon: 'RiFacebookBoxLine', link: 'https://www.facebook.com/thekingsroom1/' },
       { icon: 'RiTwitterXLine', link: 'https://twitter.com/thekingsroom1' },
     ],
   },

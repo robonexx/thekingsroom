@@ -19,16 +19,16 @@ import { TbBrandBandcamp } from 'react-icons/tb';
 // mapping thru my social icons, something i learned at Degaming :D
 // then dynamically fetching the right icons
 const iconMap = {
-  RiLinkedinBoxLine,
-  RiTwitterXLine,
-  RiInstagramLine,
-  RiSpotifyLine,
-  RiSoundcloudLine,
-  RiGithubLine,
-  RiFacebookBoxLine,
-  RiTiktokFill,
-  RiWhatsappLine,
-  TbBrandBandcamp,
+  RiLinkedinBoxLine: RiLinkedinBoxLine,
+  RiTwitterXLine: RiTwitterXLine,
+  RiInstagramLine: RiInstagramLine,
+  RiSpotifyLine: RiSpotifyLine,
+  RiSoundcloudLine: RiSoundcloudLine,
+  RiGithubLine: RiGithubLine,
+  RiFacebookBoxLine: RiFacebookBoxLine,
+  RiTiktokFill: RiTiktokFill,
+  RiWhatsappLine: RiWhatsappLine,
+  TbBrandBandcamp: TbBrandBandcamp,
 
   // Add other icons here as needed
 };
@@ -91,25 +91,27 @@ const TeamMember = ({ name, desc, img, socials }) => {
       }
     );
 
-    // Kill the timeline to prevent memory leaks
     return () => {
       tl.kill();
     };
   }, [name, desc, img]);
 
-  /* if (!name || !desc || !image) {
-    return null;
-  } */
   if (!img) {
     return null;
   }
+
+
+/*   if (socials === undefined) {
+    return(<div>Loading... </div>)
+  }
+  console.log(socials.map((social) => console.log(social.icon, social.link))) */
 
   return (
     <div className={styles['crew-member-container']}>
       <div className={styles['crew-member']} ref={wrapper}>
         {name !== '' ? <h2 ref={text}>{name}</h2> : ''}
 
-        <div className='overlay' ref={overlayRef}></div>
+        <div className={styles.overlay} ref={overlayRef}></div>
         <div className={styles.container} ref={container}>
           <div className={styles['image-container']}>
             <img ref={imgRef} src={img} alt={name} />
@@ -118,8 +120,7 @@ const TeamMember = ({ name, desc, img, socials }) => {
         {desc !== '' ? <p ref={text2}>{desc}</p> : ''}
       </div>
       <ul className={styles.socials}>
-        {socials.map((social, index) => {
-          // Here we get the icon component based on the icon string
+        {socials && socials.map((social, index) => {
           const IconComponent = iconMap[social.icon];
           return (
             <Link
@@ -128,7 +129,6 @@ const TeamMember = ({ name, desc, img, socials }) => {
               rel='noopener noreferrer'
               key={index}
             >
-              {/* Render the icon if it exists */}
               {IconComponent && <IconComponent />}
             </Link>
           );

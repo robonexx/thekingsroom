@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import styles from './About.module.scss';
 import { teamMembersData } from '../../assets/teamMembersData';
-import TeamMember from '../../components/TeamMember/TeamMember';
+import TeamMember from '../../components/TeamMember';
 
 const About = () => {
+  console.log(teamMembersData)
   return (
     <div className={styles.about}>
       <section>

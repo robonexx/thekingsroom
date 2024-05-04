@@ -5,7 +5,7 @@ import { videoData } from '../../assets/Data';
 import Video from '../VideoContainer/Video';
 import IMG4 from '../../assets/images/tkr-bg.png';
 import styles from './Hero.module.scss';
-import ImageReveal from '../TeamMember/TeamMember';
+import ImageReveal from '../TeamMember';
 
 const Hero = () => {
   /*  const [windowWidth, setWindowWidth] = useState(window.innerWidth); */
@@ -27,7 +27,7 @@ const Hero = () => {
 
   return (
     <div className={styles.hero}>
-     {/*  <div className={styles['mobile-welcome']}>
+      {/*  <div className={styles['mobile-welcome']}>
       <motion.h3
         initial={{ opacity: 0 }}
         animate={{  opacity: 1 }}
@@ -52,42 +52,37 @@ const Hero = () => {
         </motion.h2>
       </div> */}
       <div className={styles['top-section']}>
+        <div className={styles['hero-tkr']}>
+          <ImageReveal title='' sub='' img={`${IMG4}`} />
+        </div>
+        <div className={styles.headline}>
+          <motion.h3
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              easings: 'ease-in-out',
+              delay: 0,
+            }}
+          >
+            Welcome to -
+          </motion.h3>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              easings: 'ease-in-out',
+              delay: 0.5,
+            }}
+          >
+            THE KINGSROOM
+          </motion.h1>
+        </div>
+      </div>
 
-      <div className={styles['hero-tkr']}>
-        <ImageReveal
-          title=''
-          sub=''
-          img={`${IMG4}`}
-        />
-      </div> 
-      <div className={styles.headline}>
-        <motion.h3
-          initial={{  opacity: 0 }}
-          animate={{  opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            easings: 'ease-in-out',
-            delay: 0,
-          }}
-        >
-          Welcome to -
-        </motion.h3>
-        <motion.h1
-          initial={{  opacity: 0 }}
-          animate={{  opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            easings: 'ease-in-out',
-            delay: 0.5,
-          }}
-        >
-          THE KINGSROOM
-        </motion.h1>
-      </div>
-      </div>
-     
       <div className={styles['video-wrapper']}>
-      <h3>Marcio Ratinho - Chief-Rocka</h3>
+        <h3>Marcio Ratinho - Chief-Rocka</h3>
         <Video vid={vid} vtime={vtime} id={id} name={name} />
       </div>
     </div>
