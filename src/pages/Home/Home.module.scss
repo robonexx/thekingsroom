@@ -4,33 +4,33 @@
     color: white;
 
     .section {
+        padding-top: 0rem;
         position: relative;
         width: 100%;
-        height: 300px;
-        margin: 0 auto 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         @media (min-width: 768px) {
-            position: relative;
-        width: 100%;
-        height: 300px;
-        margin: 25vh auto;
+            padding-top: 10rem;
         }
 
-        h2 {
-            margin: 2rem 0;
+        article {
+            width: 100%;
+            height: fit-content;
+            padding: 1rem 0;
+            @media (min-width: 768px) {
+                width: 80%;
+                padding: 4rem 0;
+            }
         }
 
         .iframe {
             padding: 1rem 0;
-            width: 95vw;
+            width: 100%;
             height: 30vh;  
             margin: 0 auto; 
-            
-            @media (min-width: 768px) {
-                position: relative;
-            width: 100%;
-            height: 300px;
-            }
         }
 
         a {
