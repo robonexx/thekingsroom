@@ -53,7 +53,7 @@ const Hero = () => {
       </div> */}
       <div className={styles['top-section']}>
         <div className={styles['hero-tkr']}>
-          <ImageReveal title='' sub='' img={`${IMG4}`} />
+          <img src={IMG4} alt='logo' />
         </div>
         <div className={styles.headline}>
           <motion.h3
@@ -62,7 +62,7 @@ const Hero = () => {
             transition={{
               duration: 0.5,
               easings: 'ease-in-out',
-              delay: 0,
+              delay: 0.6,
             }}
           >
             Welcome to -
@@ -73,7 +73,7 @@ const Hero = () => {
             transition={{
               duration: 0.5,
               easings: 'ease-in-out',
-              delay: 0.5,
+              delay: 0.8,
             }}
           >
             THE KINGSROOM
@@ -81,7 +81,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className={styles['video-wrapper']}>
+      <div
+        className={styles['video-wrapper']}>
         <h3>Marcio Ratinho - Chief-Rocka</h3>
         <Video vid={vid} vtime={vtime} id={id} name={name} />
       </div>

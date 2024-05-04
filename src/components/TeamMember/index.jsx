@@ -33,7 +33,7 @@ const iconMap = {
   // Add other icons here as needed
 };
 
-const TeamMember = ({ name, desc, img, socials }) => {
+const TeamMember = ({ name, desc, img, socials, id }) => {
   const imgRef = useRef(null);
   const container = useRef(null);
   const wrapper = useRef(null);
@@ -100,39 +100,40 @@ const TeamMember = ({ name, desc, img, socials }) => {
     return null;
   }
 
-
-/*   if (socials === undefined) {
+  /*   if (socials === undefined) {
     return(<div>Loading... </div>)
   }
   console.log(socials.map((social) => console.log(social.icon, social.link))) */
 
   return (
     <div className={styles['crew-member-container']}>
-      <div className={styles['crew-member']} ref={wrapper}>
-        {name !== '' ? <h2 ref={text}>{name}</h2> : ''}
-
-        <div className={styles.overlay} ref={overlayRef}></div>
-        <div className={styles.container} ref={container}>
-          <div className={styles['image-container']}>
-            <img ref={imgRef} src={img} alt={name} />
+      <Link to={`/about/${id}`}>
+        <div className={styles['crew-member']} ref={wrapper}>
+          {name !== '' ? <h2 ref={text}>{name}</h2> : ''}
+          <div className={styles.overlay} ref={overlayRef}></div>
+          <div className={styles.container} ref={container}>
+            <div className={styles['image-container']}>
+              <img ref={imgRef} src={img} alt={name} />
+            </div>
           </div>
+          {desc !== '' ? <p ref={text2}>{desc}</p> : ''}
         </div>
-        {desc !== '' ? <p ref={text2}>{desc}</p> : ''}
-      </div>
+      </Link>
       <ul className={styles.socials}>
-        {socials && socials.map((social, index) => {
-          const IconComponent = iconMap[social.icon];
-          return (
-            <Link
-              to={social.link}
-              target='_blank'
-              rel='noopener noreferrer'
-              key={index}
-            >
-              {IconComponent && <IconComponent />}
-            </Link>
-          );
-        })}
+        {socials &&
+          socials.map((social, index) => {
+            const IconComponent = iconMap[social.icon];
+            return (
+              <Link
+                to={social.link}
+                target='_blank'
+                rel='noopener noreferrer'
+                key={index}
+              >
+                {IconComponent && <IconComponent />}
+              </Link>
+            );
+          })}
       </ul>
     </div>
   );

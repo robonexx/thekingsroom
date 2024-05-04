@@ -6,11 +6,11 @@ const Video = ({ vid, vtime, id, name }) => {
   return (
     <div key={id} className={styles['video-responsive']}>
       <motion.div className={styles.overlay}
-        initial={{ width: '100%' }}
-        animate={{ width: '0%' }}
+        initial={{ width: '100%', opacity: 0 }}
+        animate={{ width: '0%', opacity: 1 }}
         transition={{
-          duration: 1, easings: 'ease-in-out',
-          delay: 1
+          duration: 1.5, easings: 'ease-in-out',
+          delay: 0
         }}
       ></motion.div>
       <iframe
