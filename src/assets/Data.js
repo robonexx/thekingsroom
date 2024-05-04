@@ -31,3 +31,9 @@ export const navData = [
     id: 4,
   },
 ];
+
+export const members = [
+  {
+    name: 'Marcio Ratinho'
+  }
+]

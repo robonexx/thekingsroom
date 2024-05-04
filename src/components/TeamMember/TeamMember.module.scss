@@ -1,5 +1,25 @@
 @use '../../styles/base/' as *;
 
+.crew-member-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+
+  &:hover {
+    cursor: pointer;
+
+    filter: drop-shadow(0 0 0.75rem rgb(115, 254, 194, 0.455));
+  }
+
+  @media (min-width: 768px) {
+      width: calc(50% - 20px);
+  }
+
+  @media (min-width: 1024px) {
+      width: calc(33.33% - 20px);
+  }
+}
+
 .crew-member {
   margin: 0 auto;
   position: relative;
@@ -38,6 +58,9 @@
       overflow: hidden;
     }
   }
+
+ 
+
   .image-container {
     position: relative;
     width: 100vw;
@@ -77,5 +100,37 @@
     text-shadow: 2px 2px 1px rgb(0, 0, 0);
     font-size: clamp(0.75rem, 1vw, 1rem);
     font-weight: 800;
+  }
+}
+
+.socials {
+  margin: 0.5rem 0;
+  display: flex;
+  a {
+      list-style: none;
+      margin: 0 5px;
+      height: 36px;
+      width: 36px;
+      color: #c4c4c4;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all ease-in-out 0.4s;
+
+      svg {
+        fill: #c4c4c4;
+      }
+
+      &:hover {
+        filter: drop-shadow(2px 2px 1rem rgb(115, 254, 194));
+        cursor: pointer;
+        color: white;
+
+        svg {
+          fill: white;
+        }
+    }
+     
   }
 }

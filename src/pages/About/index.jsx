@@ -1,24 +1,7 @@
-import { Link } from 'react-router-dom';
-import {
-  RiLinkedinBoxLine,
-  RiTwitterXLine,
-  RiInstagramLine,
-  RiSpotifyLine,
-  RiSoundcloudLine,
-  RiGithubLine,
-  RiFacebookBoxLine,
-  RiTiktokFill,
-  RiWhatsappLine,
-} from 'react-icons/ri';
-import { TbBrandBandcamp } from 'react-icons/tb';
 import { motion } from 'framer-motion';
-import CrewItem from '../../components/CrewItem/CrewItem';
 import styles from './About.module.scss';
-import IMG from '../../assets/images/marcio.jpg';
-import IMG2 from '../../assets/images/combat_2.png';
-import IMG3 from '../../assets/images/bob.jpg';
-import IMG4 from '../../assets/images/tkr-bg.png';
-import IMG5 from '../../assets/images/stew.webp';
+import { teamMembersData } from '../../assets/teamMembersData';
+import TeamMember from '../../components/TeamMember/TeamMember';
 
 const About = () => {
   return (
@@ -45,14 +28,29 @@ const About = () => {
           }}
         >
           A collective of creative artists, an entertainment collective, radio
-          shows, live events and workshops in dance and dj:ing. The Kings Room is a
-          platform with new and experienced artists, where all together work to
-          provide the best quality in music and dance. Our goal is to lead a
-          team that raises the finests sides of the Urban culture by inspiring
-          everyone around us.
+          shows, live events and workshops in dance and dj:ing. The Kings Room
+          is a platform with new and experienced artists, where all together
+          work to provide the best quality in music and dance. Our goal is to
+          lead a team that raises the finests sides of the Urban culture by
+          inspiring everyone around us.
         </motion.p>
       </section>
       <div className={styles.crew}>
+        {teamMembersData ? (
+          teamMembersData.map(({ name, desc, img, socials, id }) => (
+            <TeamMember
+              key={id}
+              name={name}
+              desc={desc}
+              img={img}
+              socials={socials}
+            />
+          ))
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
+      {/*    <div className={styles.crew}>
         <div className={styles['crew-member-container']}>
           <CrewItem
             title='Marcio Ratinho'
@@ -178,7 +176,7 @@ const About = () => {
             <RiSoundcloudLine />
           </Link>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

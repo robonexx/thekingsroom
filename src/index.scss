@@ -88,7 +88,13 @@ body {
 }
 
 main {
-  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 4rem;
+   
+  }
 }
 
 .root-layout {
@@ -204,3 +210,5 @@ h1 {
       }
     }
   
+
+ 
