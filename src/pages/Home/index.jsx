@@ -1,14 +1,20 @@
 import Hero from '../../components/Hero';
+import SoundCloud from '../../components/SoundCloud';
 import styles from './Home.module.scss';
+import Gridlines from '../../components/Animations/Gridlines'
 
 
 const Home = () => {
 
   return (
     <div className={styles.home}>
+      <Gridlines />
       <Hero />
       <section className={styles.section}>
         <h2>Latest from Kingsroom</h2>
+        <article>
+          <SoundCloud url='https%3A//api.soundcloud.com/tracks/1741890039&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true' height={420} />
+        </article>
         <article>
           <iframe
             className={styles.iframe}
