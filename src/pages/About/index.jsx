@@ -2,15 +2,13 @@ import { motion } from 'framer-motion';
 import styles from './About.module.scss';
 import { teamMembersData } from '../../assets/teamMembersData';
 import TeamMember from '../../components/TeamMember';
-import { AnimatedText } from '../../components/Animations/AnimatedText';
 
 const About = () => {
-  /*  console.log(teamMembersData); */
+  console.log(teamMembersData);
   return (
     <div className={styles.about}>
-      <motion.section>
-        <AnimatedText text='The Team' className={styles.title} el='h2' />
-        {/* <motion.h1
+      <section>
+        <motion.h1
           initial={{ x: -400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -20,14 +18,14 @@ const About = () => {
           }}
         >
           The Team
-        </motion.h1> */}
+        </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
             duration: 1,
             easings: 'ease-in-out',
-            delay: 0.6,
+            delay: 0.3,
           }}
         >
           A collective of creative artists, an entertainment collective, radio
@@ -37,7 +35,7 @@ const About = () => {
           lead a team that raises the finests sides of the Urban culture by
           inspiring everyone around us.
         </motion.p>
-      </motion.section>
+      </section>
       <div className={styles.crew}>
         {teamMembersData ? (
           teamMembersData.map(({ name, desc, img, socials, id }) => (
