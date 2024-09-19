@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+/* import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import createWidget from '../../utils/createWidget';
 
@@ -54,7 +54,6 @@ const SoundCloud = ({ url, id, height, opts, onPlay, onPause, onEnd }) => {
       height={height || (opts.visual ? '450' : '166')}
       scrolling="no"
       frameBorder="no"
-     /*  src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}`} */
        src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}`} 
     />
   );
@@ -79,3 +78,4 @@ SoundCloud.defaultProps = {
 };
 
 export default SoundCloud;
+ */
