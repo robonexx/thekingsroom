@@ -1,10 +1,18 @@
-.span {
+.line {
+    display: block;
+  }
+  
+  .word {
     display: inline-block;
-    font-size: inherit; 
+    white-space: nowrap; // Prevent word breaks
+  }
+  
+  .span {
+    display: inline-block;
     font-family: inherit;
-}
-
-.sr-only {
+  }
+  
+  .sr-only {
     position: absolute;
     margin: -1px 0 0 -1px;
     padding: 0;
@@ -14,7 +22,8 @@
     font-size: 1px;
     line-height: 1px;
     overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     border: 0;
     outline: 0;
-    }
+  }
+  

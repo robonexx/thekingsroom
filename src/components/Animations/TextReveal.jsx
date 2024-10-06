@@ -1,16 +1,14 @@
-'use client';
-import styles from './TextReveal.module.scss'
-import { motion, useInView, useAnimation } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+"use client";
+import styles from "./TextReveal.module.scss";
+import { motion, useInView, useAnimation } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const defaultAnimations = {
   hidden: {
     opacity: 0,
-  
   },
   visible: {
     opacity: 1,
-   
     transition: {
       duration: 0.1,
     },
@@ -19,9 +17,9 @@ const defaultAnimations = {
 
 export const TextReveal = ({
   text,
-  el: Wrapper = 'p',
-  style,
-  displayStyle = 'inline-block', // Default display style
+  el: Wrapper = "p",
+  className = "title",
+  displayStyle = "inline-block",
   once,
   repeatDelay,
   animation = defaultAnimations,
@@ -34,11 +32,11 @@ export const TextReveal = ({
   useEffect(() => {
     let timeout;
     const show = () => {
-      controls.start('visible');
+      controls.start("visible");
       if (repeatDelay) {
         timeout = setTimeout(async () => {
-          await controls.start('hidden');
-          controls.start('visible');
+          await controls.start("hidden");
+          controls.start("visible");
         }, repeatDelay);
       }
     };
@@ -46,7 +44,7 @@ export const TextReveal = ({
     if (isInView) {
       show();
     } else {
-      controls.start('hidden');
+      controls.start("hidden");
     }
 
     return () => clearTimeout(timeout);
@@ -54,9 +52,10 @@ export const TextReveal = ({
 
   return (
     <Wrapper
-      style={{ ...style, display: displayStyle }} 
+      style={{ display: displayStyle }}
+      className={`${styles.textReveal} ${className}`}
     >
-      <span className={styles['sr-only']}>{textArray.join(' ')}</span>
+      <span className={styles["sr-only"]}>{textArray.join(" ")}</span>
       <motion.span
         ref={ref}
         initial='hidden'
@@ -68,21 +67,27 @@ export const TextReveal = ({
         aria-hidden
       >
         {textArray.map((line, lineIndex) => (
-          <span style={{ display: 'block' }} key={`${line}-${lineIndex}`} className={styles.span}>
-            {line.split(' ').map((word, wordIndex) => (
+          <span
+            style={{ display: "block" }}
+            key={`${line}-${lineIndex}`}
+            className={styles.line}
+          >
+            {line.split(" ").map((word, wordIndex) => (
+              // Wrap each word in a span with nowrap style
               <span
-                style={{ display: 'inline-block' }}
                 key={`${word}-${wordIndex}`}
+                className={styles.word} // Add class for word-level control
               >
-                {word.split('').map((char, charIndex) => (
+                {word.split("").map((char, charIndex) => (
                   <motion.span
                     key={`${char}-${charIndex}`}
-                    style={{ display: 'inline-block' }}
+                    style={{ display: "inline-block" }}
                     variants={animation}
                   >
                     {char}
                   </motion.span>
                 ))}
+                {/* Add space between words */}
                 <span style={{ display: displayStyle }}>&nbsp;</span>
               </span>
             ))}

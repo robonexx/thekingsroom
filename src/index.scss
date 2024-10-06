@@ -378,4 +378,16 @@ h1 {
     .toolbar-class {
       border: 1px solid #ccc;
     }
+
+    .title {
+      font-size: clamp(2rem, 0.75rem + 3vw, 6rem);
+      padding-bottom: 1rem;
+      word-break: keep-all;
+    }
+    
+    .title2 {
+      font-size: clamp(2rem, 0.75rem + 3vw, 4rem);
+      padding-bottom: 1rem;
+      word-break: keep-all;
+    }
     

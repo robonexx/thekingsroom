@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { getAuth } from "firebase/auth";
-import parse from "html-react-parser";
 import { useLocation, useNavigate } from "react-router-dom";
 import LazyLoad from "./common/LazyLoad";
 import dayjs from "dayjs";
@@ -11,37 +10,45 @@ const Card = ({ id, blog, delHandler }) => {
   const location = useLocation();
   const navigate = useNavigate();
   dayjs.extend(relativeTime);
+
   const handleActionClick = (e) => {
     e.stopPropagation();
   };
+
   const fallBackImage =
-    "https://img.freepik.com/free-photo/digital-painting-mountain-with-colorful-tree-foreground_1340-25699.jpg?w=900&t=st=1686204841~exp=1686205441~hmac=16586e1f1340a9b9a774cd9538d3a9fc9fcd78acf00fbe2405160352f137faa4";
+    "https://img.freepik.com/free-photo/digital-painting-mountain-with-colorful-tree-foreground_1340-25699.jpg";
 
   return (
     <div>
       <div
-        onClick={() => navigate(`/category/${blog.blogData.category}/${id}`)}
-        className='google__btn__shadow relative mx-auto my-2 max-w-sm overflow-hidden rounded-lg border border-gray-200 bg-white bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow transition-all  duration-200 ease-in-out hover:shadow-lg hover:shadow-sky-800 dark:border-gray-700 dark:bg-gray-800'
+        onClick={() => navigate(`/blog/${id}`)} // Adjusted to navigate to /blog/:id
+        className='google__btn__shadow relative mx-auto my-2 max-w-sm overflow-hidden rounded-lg border border-gray-200 bg-white bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow transition-all duration-200 ease-in-out hover:shadow-lg hover:shadow-sky-800 dark:border-gray-700 dark:bg-gray-800'
       >
-        <a href='#' className='transition-all duration-300 ease-in-out'>
+        <div className='transition-all duration-300 ease-in-out'>
           <LazyLoad
             classes={
               "h-72 w-[30rem] rounded-t-lg object-cover transition-all duration-300 ease-in-out hover:scale-105"
             }
-            image={blog?.imageUrl ? blog?.imageUrl : fallBackImage}
+            image={
+              blog?.blogData?.imageUrl ? blog.blogData.imageUrl : fallBackImage
+            }
           />
-        </a>
+        </div>
         <div className='h-56 p-5 font-bold tracking-tight'>
-          <a href='#'>
-            <h2 className='mb-2  line-clamp-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-              {blog?.blogData?.title}
-            </h2>
-          </a>
-          <p className='mb-3 line-clamp-2 text-lg font-normal text-gray-700  dark:text-gray-400'>
-            {parse(blog?.blogData?.content)}
+          <h2 className='mb-2 line-clamp-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+            {blog?.blogData?.title}
+          </h2>
+          <p className='mb-3 line-clamp-2 font-normal text-gray-700 dark:text-gray-400'>
+            {blog?.blogData?.content}
           </p>
           <div className='mt-6 flex items-center justify-between'>
-            <button className='inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 active:scale-95 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(`/blog/${id}`);
+              }}
+              className='inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 active:scale-95 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+            >
               Read more
               <svg
                 aria-hidden='true'
@@ -57,11 +64,10 @@ const Card = ({ id, blog, delHandler }) => {
                 ></path>
               </svg>
             </button>
-            <span className='absolute right-2 top-[14.8rem] cursor-pointer rounded-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 px-3 py-2 text-sm font-medium focus:outline-none focus:ring-4 active:scale-95'>
+            <span className='absolute right-2 top-[14.8rem] cursor-pointer rounded-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 px-3 py-2 text-sm font-medium text-white focus:outline-none focus:ring-4 active:scale-95'>
               {blog?.blogData?.category}
             </span>
-
-            <span className="active:scale-95' absolute left-2 top-[14.8rem] cursor-pointer rounded-lg bg-zinc-600 px-3 py-2 text-sm font-medium focus:outline-none focus:ring-4">
+            <span className='absolute left-2 top-[14.8rem] cursor-pointer rounded-lg bg-zinc-600 px-3 py-2 text-sm font-medium text-white focus:outline-none focus:ring-4 active:scale-95'>
               {blog?.timestamp
                 ? dayjs(blog.timestamp.toDate()).fromNow()
                 : "Timestamp not available"}
@@ -75,7 +81,7 @@ const Card = ({ id, blog, delHandler }) => {
                   onClick={handleActionClick}
                   className='z-50 flex items-center space-x-3'
                 >
-                  {/* del icon */}
+                  {/* Delete icon */}
                   <span
                     onClick={() => delHandler(id)}
                     className='cursor-pointer active:scale-95'
@@ -92,7 +98,7 @@ const Card = ({ id, blog, delHandler }) => {
                       />
                     </svg>
                   </span>
-                  {/* edit icon */}
+                  {/* Edit icon */}
                   <span
                     onClick={() => navigate(`/edit/${id}`)}
                     className='cursor-pointer active:scale-95'

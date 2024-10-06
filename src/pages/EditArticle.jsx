@@ -2,12 +2,10 @@
 import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import { doc, getDoc, serverTimestamp, updateDoc } from "firebase/firestore";
-// import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage"
 import { db } from "../config/firebase";
 import { toast } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
-import BlogEditor from "../components/BlogEditor";
 import { Balancer } from "react-wrap-balancer";
 import Dropdown from "../components/Dropdown";
 
@@ -17,18 +15,14 @@ const EditArticle = () => {
   const { articleId } = useParams();
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [blog, setBlog] = useState();
+  const [blog, setBlog] = useState(null);
   const [blogData, setBlogData] = useState({
     title: "",
     content: "",
     category: "",
-    comments: "",
-    // image: {},
+    imageUrl: "",
   });
-  // console.log(blogData);
   const [category, setCategory] = useState("");
-
-  const { title } = blogData;
 
   // To get category
   const selectCategory = (option) => {
@@ -39,86 +33,77 @@ const EditArticle = () => {
     });
   };
 
+  // Fetch blog data to edit
   useEffect(() => {
-    if (blog && blog?.author?.id !== auth?.currentUser?.uid) {
-      toast.error("You cannot edit this blog!!");
-      navigate("/");
-    }
-  }, []);
-
-  // Add details to blogData state
-  const onChangeHandler = (e) => {
-    if (e.target.id !== "category") {
-      setBlogData({
-        ...blogData,
-        [e.target.id]: e.target.value,
-      });
-    }
-    // Function to be created in future to update images
-    /* if (e.target.files) {
-      setBlogData({
-        ...blogData,
-        image: e.target.files[0],
-      });
-    } */
-    
-  };
-
-  const fetchInitialData = async () => {
-    setLoading(true);
-    try {
-      if (auth && auth.currentUser) {
+    const fetchInitialData = async () => {
+      setLoading(true);
+      try {
         const blogRef = doc(db, "blogs", articleId);
         const docSnap = await getDoc(blogRef);
         if (docSnap.exists()) {
           const data = docSnap.data();
-          setBlog({ ...docSnap.data() });
+          setBlog(data);
           setBlogData({ ...data.blogData });
-          // console.log(blogData);
-          setLoading(false);
+          setCategory(data.blogData.category || "");
+        } else {
+          toast.error("Blog post not found.");
+          navigate("/");
         }
+      } catch (error) {
+        console.log("Error fetching blog:", error);
+        toast.error("An error occurred while fetching the blog.");
+        navigate("/");
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      navigate("/");
-      console.log(error.message);
-      toast.error("Listing doesnot exist");
-    } finally {
-      setLoading(false);
+    };
+
+    fetchInitialData();
+  }, [articleId, navigate]);
+
+  // Check if the current user is authorized to edit the blog
+  useEffect(() => {
+    if (blog && auth.currentUser) {
+      if (blog.author.id !== auth.currentUser.uid) {
+        toast.error("You cannot edit this blog!");
+        navigate("/");
+      }
     }
+  }, [blog, auth.currentUser, navigate]);
+
+  // Handle input changes
+  const onChangeHandler = (e) => {
+    setBlogData({
+      ...blogData,
+      [e.target.id]: e.target.value,
+    });
   };
 
-  useEffect(() => {
-    fetchInitialData();
-  }, []);
-
-  // Update details to firebase
+  // Update blog in Firestore
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (blogData.content && blogData.category && blogData.title) {
-      try {
-        const blogDataCopy = {
-          ...blogData,
-          updatedAt: serverTimestamp(),
-        };
+    const { title, content, category } = blogData;
 
+    if (title && content && category) {
+      try {
         const blogRef = doc(db, "blogs", articleId);
-        console.log("Inside try catch")
-        console.log("blogData and BlogDataCopy: ",blogData, blogDataCopy)
-        // updating the blogData which is inside blogData field
         await updateDoc(blogRef, {
-          blogData: blogDataCopy,
+          blogData: {
+            ...blogData,
+          },
+          updatedAt: serverTimestamp(),
         });
+        toast.success("Blog post updated successfully!");
         navigate(`/myBlogs/${auth.currentUser.uid}`);
-        setLoading(false);
-        toast.success("Post published");
       } catch (error) {
+        console.error("Error updating blog:", error);
+        toast.error("Unable to update the blog post.");
+      } finally {
         setLoading(false);
-        console.error(error);
-        toast.error("Unable to publish post");
       }
     } else {
-      toast.error("Please fill all the fields");
+      toast.error("Please fill in all fields.");
       setLoading(false);
     }
   };
@@ -130,10 +115,11 @@ const EditArticle = () => {
   if (loading) {
     return <Loader />;
   }
+
   return (
     <div className='h-full bg-gray-200 pb-20'>
       <h1 className='bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text py-4 pt-14 text-center font-raleway text-4xl font-extrabold text-transparent md:text-5xl'>
-        <Balancer>Create a new blog post</Balancer>
+        <Balancer>Edit Blog Post</Balancer>
       </h1>
       <form
         onSubmit={onSubmitHandler}
@@ -147,32 +133,40 @@ const EditArticle = () => {
           isOpen={isOpen}
         />
         <input
-          value={title}
+          value={blogData.title}
           onChange={onChangeHandler}
           type='text'
           className='mt-5 h-12 w-full rounded-md border-zinc-800 pl-3 text-zinc-700'
           id='title'
           placeholder='Enter title here...'
         />
-        {/* Uncomment this only when upload image function is created from above functions */}
-        {/* <input
+        {/* Content Textarea */}
+        <textarea
+          value={blogData.content}
           onChange={onChangeHandler}
-          type='file'
-          className='mt-5 w-full rounded-md border border-zinc-800 py-3 pl-3 text-zinc-700'
-          name=''
-          placeholder='Enter title here...'
+          id='content'
+          className='mt-5 h-48 w-full rounded-md border-zinc-800 pl-3 text-black'
+          placeholder='Enter blog content'
+        ></textarea>
+        {/* Image URL Input (Optional) */}
+        {/* Uncomment this section if you want to allow updating the image URL */}
+        {/* <input
+          value={blogData.imageUrl}
+          onChange={onChangeHandler}
+          type='text'
+          className='mt-5 h-12 w-full rounded-md border-zinc-800 pl-3 text-zinc-700'
+          id='imageUrl'
+          placeholder='Enter image URL'
         /> */}
-        <BlogEditor blogData={blogData} setBlogData={setBlogData} />
         <div className='mx-auto my-8 mt-20 w-full max-w-[50%] md:mt-0 lg:max-w-[40%] '>
           <button
             type='submit'
             className='mt-8 w-full cursor-pointer rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 py-3 font-semibold text-white transition duration-200 ease-in-out active:scale-90'
           >
-            Update post
+            Update Post
           </button>
         </div>
       </form>
-      <div></div>
     </div>
   );
 };

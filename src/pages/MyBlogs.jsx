@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import {
   collection,
   deleteDoc,
@@ -10,44 +9,60 @@ import {
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
 import Card from "../components/Card";
 import CardSkeleton from "../components/skeleton/CardSkeleton";
 
 const MyBlogs = () => {
-  const auth = getAuth();
-  const [loading, setLoading] = useState(true); // Set initial state to true
-  const [userBlog, setUserBlog] = useState([]); // Initialize as an empty array
+  const [loading, setLoading] = useState(true);
+  const [userBlog, setUserBlog] = useState([]);
+  const [user, setUser] = useState(null);
 
+  // Authentication listener
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        // User is not logged in
+        setLoading(false);
+        toast.error("You need to be logged in to view your blogs.");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Fetch user's blogs
   useEffect(() => {
     const fetchUserData = async () => {
+      if (!user) return;
+
       try {
         const blogRef = collection(db, "blogs");
         const q = query(
           blogRef,
-          where("author.id", "==", auth.currentUser.uid),
+          where("author.id", "==", user.uid),
           orderBy("timestamp", "desc")
         );
         const docSnap = await getDocs(q);
-        let blogs = [];
-        docSnap.forEach((doc) => {
-          blogs.push({
-            id: doc.id,
-            data: doc.data(),
-          });
-        });
-        setUserBlog(blogs); // Update the userBlog state
+        const blogs = docSnap.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }));
+        setUserBlog(blogs);
       } catch (error) {
         console.log("Error fetching blogs:", error);
         toast.error("Error loading your articles.");
       } finally {
-        setLoading(false); // Ensure loading is set to false after fetch
+        setLoading(false);
       }
     };
+
     fetchUserData();
-  }, []);
+  }, [user]);
 
   const delHandler = async (id) => {
     const showConfirmation = () => {
@@ -62,7 +77,7 @@ const MyBlogs = () => {
     };
 
     const result = await showConfirmation();
-    if (auth.currentUser && result.isConfirmed) {
+    if (user && result.isConfirmed) {
       try {
         const ref = doc(db, "blogs", id);
         await deleteDoc(ref);
@@ -76,19 +91,17 @@ const MyBlogs = () => {
   };
 
   return (
-    <div className='mx-auto max-w-7xl'>
-      <h1 className='my-12 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text py-5 text-center text-5xl font-extrabold text-transparent'>
-        My Articles
+    <div className='mx-auto max-w-7xl px-20'>
+      <h1 className='pt-40 pb-12 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text py-5 text-center text-5xl font-extrabold text-transparent'>
+        My Writings on the wall
       </h1>
 
       <div className='mx-auto mt-12 grid w-[80%] grid-cols-1 gap-5 md:w-[95%] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
         {loading ? (
-          // Show skeletons while loading
           Array.from({ length: 6 }).map((_, index) => (
             <CardSkeleton key={index} />
           ))
         ) : userBlog.length > 0 ? (
-          // Show blogs if available
           userBlog.map((blog, index) => (
             <Card
               key={index}
@@ -98,9 +111,8 @@ const MyBlogs = () => {
             />
           ))
         ) : (
-          // Fallback message if no blogs exist
           <p className='mt-24 text-center text-4xl font-extrabold'>
-            You have not posted any articles yet!!
+            You have not posted any articles yet!
           </p>
         )}
       </div>

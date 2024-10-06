@@ -44,10 +44,11 @@ const router = createBrowserRouter(
       <Route path='/forgot-password' element={<ForgotPassword />} />
       <Route path='/sign-out' element={<Logout />} />
       <Route path='/category/:categoryName' element={<Category />} />
-      <Route
+      {/*  <Route
         path='/category/:categoryName/:articleId'
         element={<SingleArticle />}
-      />
+      /> */}
+      <Route path='/blog/:articleId' element={<SingleArticle />} />
       <Route path='/search/:query' element={<SearchResults />} />
       <Route path='/edit/:articleId' element={<EditArticle />} />
 

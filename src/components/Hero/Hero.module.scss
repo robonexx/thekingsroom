@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     font-family: $font-alt;
+    z-index: 2;
 
     @media (min-width: 768px) {
         flex-direction: row;

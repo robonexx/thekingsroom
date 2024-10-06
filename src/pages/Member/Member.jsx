@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { gsap, Power2 } from "gsap";
 import styles from "./Member.module.scss";
@@ -18,6 +19,7 @@ const Member = ({ teamMembersData }) => {
   const titleRef = useRef(null);
   const paragraphRef = useRef(null);
   const containerRef = useRef(null);
+  const btnRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -70,6 +72,11 @@ const Member = ({ teamMembersData }) => {
       { y: 0, opacity: 1, duration: 1 },
       "-=0.5"
     );
+    tl.fromTo(
+      btnRef.current,
+      { opacity: 0, y: -200 },
+      { opacity: 1, y: 0, duration: 0.8, ease: Power2.easeInOut, delay: 0.3 }
+    );
 
     return () => {
       tl.kill(); // Clean up the animation on component unmount
@@ -94,7 +101,9 @@ const Member = ({ teamMembersData }) => {
 
   return (
     <div className={styles.member}>
-      <button className={styles.back}>Go Back</button>
+      <Link to={`/about`} className={styles.back} ref={btnRef}>
+        Go Back
+      </Link>
 
       {/* Background Image */}
       <div className={styles.bgImage} ref={bgRef}>

@@ -40,14 +40,6 @@ const Dropdown = ({ toggleMenu, category, selectCategory, isOpen }) => {
                 <a>Music</a>
               </li>
               <li
-                onClick={() => selectCategory("dj:ing")}
-                id='category'
-                value='travel'
-                className='block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-              >
-                <a>Dj:ing</a>
-              </li>
-              <li
                 onClick={() => selectCategory("knowledge")}
                 id='category'
                 value='knowledge'
@@ -66,15 +58,6 @@ const Dropdown = ({ toggleMenu, category, selectCategory, isOpen }) => {
               </li>
 
               <li
-                onClick={() => selectCategory("productivity")}
-                id='category'
-                value='productivity'
-                className='block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-              >
-                <a>Productivity</a>
-              </li>
-
-              <li
                 onClick={() => selectCategory("lifestyle")}
                 id='category'
                 value='lifestyle'
@@ -83,14 +66,6 @@ const Dropdown = ({ toggleMenu, category, selectCategory, isOpen }) => {
                 <a>Lifestyle</a>
               </li>
 
-              <li
-                onClick={() => selectCategory("hiphop")}
-                id='category'
-                value='design'
-                className='block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-              >
-                <a>Hip Hop</a>
-              </li>
               <li
                 onClick={() => selectCategory("entertainment")}
                 id='category'
