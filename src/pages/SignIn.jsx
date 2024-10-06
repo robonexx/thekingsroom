@@ -1,10 +1,11 @@
 import security from "../assets/undraw_exams_re_4ios.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import OAuth from "../components/OAuth";
+/* import OAuth from "../components/OAuth"; */
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import Loader from "../components/Loader";
+import IMG from "../assets/images/tkr-bg.png";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -52,18 +53,14 @@ const SignIn = () => {
   return (
     <div className='min-h-screen'>
       <h1 className='mb-10 mt-40 bg-gradient-to-r from-[#C0C0C0] to-[#888] bg-clip-text text-center font-raleway text-5xl font-extrabold text-transparent'>
-        Sign-in in your account
+        Login to your account
       </h1>
       <section className='mx-auto max-w-7xl'>
         <div className='h-full'>
           {/* <!-- Left column container with background--> */}
           <div className='g-6 flex h-full flex-wrap items-center justify-center lg:justify-between'>
             <div className='shrink-1 mb-12 grow-0 basis-auto rounded-md bg-[#003f5c] md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12'>
-              <img
-                src='https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp'
-                className='w-full '
-                alt='Sample image'
-              />
+              <img src={IMG} className='w-full ' alt='Sample image' />
             </div>
 
             {/* <!-- Right column container --> */}
@@ -130,14 +127,14 @@ const SignIn = () => {
                   </button>
                 </div>
 
-                <div className='mx-auto my-4 mt-5 flex w-full max-w-[90%] items-center before:mt-0.5 before:flex-1 before:border-t before:border-gray-500 after:mt-0.5 after:flex-1 after:border-t after:border-gray-500'>
+                {/*    <div className='mx-auto my-4 mt-5 flex w-full max-w-[90%] items-center before:mt-0.5 before:flex-1 before:border-t before:border-gray-500 after:mt-0.5 after:flex-1 after:border-t after:border-gray-500'>
                   <p className='mx-4 mb-0 text-center font-semibold dark:text-white'>
                     OR
                   </p>
-                </div>
+                </div> */}
               </form>
               {/* Google authentication */}
-              <OAuth />
+              {/*   <OAuth /> */}
             </div>
           </div>
         </div>

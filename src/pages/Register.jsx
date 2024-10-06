@@ -17,7 +17,8 @@ import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import Loader from "../components/Loader";
 import { v4 as uuidv4 } from "uuid";
 import { FcAddImage } from "react-icons/fc";
-import OAuth from "../components/OAuth";
+/* import OAuth from "../components/OAuth"; */
+import IMG from '../assets/images/tkr-bg.png'
 
 const defaultAvatarUrl = "../assets/images/default-avatar.png"; // Default avatar
 
@@ -138,15 +139,15 @@ const Register = () => {
 
   return (
     <div>
-      <h1 className='mb-10 mt-36 bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-center font-raleway text-5xl font-bold text-transparent'>
-        Register Yourself
+      <h1 className='mb-10 mt-36 text-white text-center font-raleway text-5xl font-bold text-transparent'>
+       Create an account
       </h1>
       <section className='mx-auto max-w-7xl'>
         <div className='h-full'>
           <div className='g-6 flex h-full flex-wrap items-center justify-center lg:justify-between'>
             <div className='shrink-1 mb-12 grow-0 basis-auto rounded-md bg-[#003f5c] md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12'>
               <img
-                src='https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp'
+                src={IMG}
                 className='w-full '
                 alt='Sample image'
               />
@@ -257,13 +258,13 @@ const Register = () => {
                   </button>
                 </div>
 
-                <div className='mx-auto my-4 mt-5 flex w-full max-w-[90%] items-center before:mt-0.5 before:flex-1 before:border-t before:border-gray-500 after:mt-0.5 after:flex-1 after:border-t after:border-gray-500'>
+                {/*  <div className='mx-auto my-4 mt-5 flex w-full max-w-[90%] items-center before:mt-0.5 before:flex-1 before:border-t before:border-gray-500 after:mt-0.5 after:flex-1 after:border-t after:border-gray-500'>
                   <p className='mx-4 mb-0 text-center font-semibold dark:text-white'>
                     OR
                   </p>
-                </div>
+                </div> */}
               </form>
-              <OAuth />
+              {/*    <OAuth /> */}
             </div>
           </div>
         </div>
