@@ -30,3 +30,91 @@
         }
     }
 }
+
+// maybe change the hole setup and styling later... for now this works
+.nav_item {
+    height: 46px;
+    position: relative;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+  
+    @media screen and (min-width: 768px) {
+      height: 100%;
+      width: fit-content;
+      padding: 0 1rem;
+    }
+  
+    /*   &:last-of-type {
+          margin-right: 0.5rem;
+  
+          @media screen and (min-width: 768px) {
+              margin-right: 2rem;
+            }
+      } */
+  
+    .nav_link {
+      padding: 0.5rem 1rem;
+      position: relative;
+      font-weight: 400;
+      font-size: clamp(1.2rem, 1.5vw, 1.75rem);
+      width: 100%;
+      text-transform: capitalize;
+      text-decoration: none;
+      color: rgba(234, 228, 228, 0.768);
+  
+      @media screen and (min-width: 768px) {
+        padding: 0.5rem 1rem;
+       
+      }
+  
+      /* want a solid background, just uncomment background color,  testing different ways to do hover effects on nav  */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #f4f4f4;
+        z-index: -1;
+        border-radius: 8px;
+      }
+    }
+  
+    &:hover,
+    &:active {
+      .nav_link {
+        color: black;
+        z-index: 10;
+      }
+      .nav_link::after {
+        width: 100%;
+        cursor: pointer;
+        transition: width 0.4s ease-in-out;
+      }
+    }
+
+
+    .user {
+        height: 100%;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 1px;
+        padding: 40px 30px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .user p {
+        font-size: 2px !important;
+      }
+    
+      .user p span {
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0.335);
+      }
+  }

@@ -5,6 +5,7 @@
   bottom: 0;
   left: 0;
   height: 100vh;
+  width: fit-content;
   z-index: 999;
   display: flex;
   -webkit-transition: all 0.3s ease-in-out;
@@ -85,7 +86,7 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      width: 100%;
+      width: fit-content;
       height: 6vh;
       border-radius: 0%;
       z-index: 49;
@@ -114,7 +115,7 @@
               align-items: center;
       -webkit-box-pack: end;
           -ms-flex-pack: end;
-              justify-content: flex-start;
+              justify-content: center;
   }
   
   
