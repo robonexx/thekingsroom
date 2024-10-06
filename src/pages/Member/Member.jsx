@@ -22,6 +22,8 @@ const Member = ({ teamMembersData }) => {
   useEffect(() => {
     const tl = gsap.timeline();
 
+    const dynamicWidth = window.innerWidth > 900 ? "60%" : "100%";
+
     // Background image fades in over 3 seconds
     tl.to(bgRef.current, { opacity: 0.3, duration: 2 });
 
@@ -29,7 +31,13 @@ const Member = ({ teamMembersData }) => {
     tl.fromTo(
       containerRef.current,
       { height: "0%", opacity: 0 },
-      { height: "60%", opacity: 1, duration: 0.8, ease: Power2.easeInOut }
+      {
+        height: "60%",
+        width: dynamicWidth,
+        opacity: 1,
+        duration: 0.8,
+        ease: Power2.easeInOut,
+      }
     );
 
     // Overlay slides out to the left, revealing the image behind
