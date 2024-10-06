@@ -104,7 +104,7 @@ const SignIn = () => {
                     Dont have an account?{" "}
                     <span
                       onClick={() => navigate("/sign-up")}
-                      className='cursor-pointer bg-gradient-to-r bg-clip-text text-gray-300 text-transparent'
+                      className='cursor-pointer text-white'
                     >
                       Register
                     </span>{" "}
