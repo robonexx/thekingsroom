@@ -83,7 +83,7 @@ const Hero = () => {
 
       <div
         className={styles['video-wrapper']}>
-        <h3>Marcio Ratinho - Chief-Rocka</h3>
+        <h2>Marcio Ratinho - Chief-Rocka</h2>
         <Video vid={vid} vtime={vtime} id={id} name={name} />
       </div>
     </div>
