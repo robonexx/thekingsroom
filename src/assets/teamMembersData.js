@@ -44,7 +44,7 @@ export const teamMembersData = [
   },
   {
     id: 3,
-    name: "DJ Flexy Stew",
+    name: "DJ Stew",
     desc: "The club, the after party, the hotel",
     fullDesc:
       "Born in the Caribbean and raised in France, DJ Stew's diverse background shaped his passion for music early on, blending rhythms from across the globe.\n\nAfter arriving in Norway in 2009, he began his journey in the vibrant heart of Oslo, drawing inspiration from the soulful rhythms of the '90s. Through dedication and talent, he has worked his way to become one of the most sought-after DJs in Oslo.\n\nToday, DJ Stew spins tunes worldwide, bringing his infectious energy to every party. Renowned for creating an unforgettable atmosphere wherever he performs, his mission is simple: to ensure everyone enjoys the moment and feels his passion for music.",
