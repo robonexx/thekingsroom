@@ -3,6 +3,8 @@
 .crew-member-container {
   width: 100%;
   box-sizing: border-box;
+  display: grid;
+  place-content: center;
 
   &:hover {
     cursor: pointer;
@@ -24,8 +26,7 @@ a {
   color: white;
 }
 
-.crew-member {
-  margin: 0 auto;
+.crew-member {  
   position: relative;
   width: 100%;
   height: 100%;
@@ -43,10 +44,6 @@ a {
   }
   .container {
     position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
     border-radius: 16px;
     overflow: hidden;
     filter: drop-shadow(0 0.2rem 0.55rem rgba(0, 0, 0, 0.2));
@@ -68,9 +65,18 @@ a {
     width: 100%;
     height: 40vh;
     border-radius: 16px;
+    overflow: hidden;
+
+    &:hover {
+border: red;
+      img {
+        transform: scale(1.2);
+
+      }
+    }
 
     @media (min-width: 768px) {
-      width: 100%;
+      width: 460px;
       height: 320px;
   }
    

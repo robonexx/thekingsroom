@@ -3,15 +3,16 @@
     width: 100%;
     height: 100%;
     background-color: transparent;
-    padding: 0 4rem;
+    
 
     section {
         position: relative;
-        padding: 5rem 0;
-        
+        padding: 5rem 2rem;
+        margin: 0 auto;
         width: 100%;
+
         @media (min-width: 768px) {
-            padding: 8rem 0 3rem;
+            padding: 8rem 4rem 3rem;
             width: 60vw;
         }
 
@@ -32,11 +33,8 @@
     }
 
     .tkr {
-        margin: 0 auto;
         padding: 1rem;
         width: 100%;
-        display: grid;
-        place-content: center;
         height: 100vh;
 
         @media (min-width: 768px) {
@@ -55,19 +53,19 @@
 
     .crew {
         margin: 0 auto 10vh;
-        width: 100%;
-        padding: 1rem 0;
+        padding: 1rem 2rem;
         display: flex;
         align-items: center;
         flex-direction: column;
-        justify-content: space-between;
-        gap: 20px;
+        justify-content: center;
+        gap: 1rem;
 
         @media (min-width: 768px) {
-            padding: 5rem 0;
+            margin: 0 auto;
+            padding: 5rem 4rem;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center; 
         }
     } 
 }
