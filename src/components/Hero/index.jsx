@@ -52,9 +52,9 @@ const Hero = () => {
         </motion.h2>
       </div> */}
       <div className={styles['top-section']}>
-        <div className={styles['hero-tkr']}>
+        {/* <div className={styles['hero-tkr']}>
           <img src={IMG4} alt='logo' />
-        </div>
+        </div> */}
         <div className={styles.headline}>
           <motion.h3
             initial={{ opacity: 0 }}
