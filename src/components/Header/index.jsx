@@ -75,7 +75,7 @@ const Header = () => {
         {navData.map(({ title, path, id }, i) => (
           <NavItem title={title} path={path} key={id} i={i} />
         ))}
-        <motion.li className={styles.nav_item}>
+        {/*      <motion.li className={styles.nav_item}>
           <Link className={styles["nav_link"]} to='/articles'>
             Articles
           </Link>
@@ -105,7 +105,6 @@ const Header = () => {
               <Avatar
                 src={user.photoURL || "../../assets/images/default-avatar.png"}
               />{" "}
-              {/* User Avatar */}
             </div>
           </>
         )}
@@ -115,7 +114,7 @@ const Header = () => {
               Sign In
             </Link>
           </motion.li>
-        )}
+        )} */}
       </Nav>
     </header>
   );

@@ -7,11 +7,15 @@ import styles from "./Member.module.scss";
 const Member = ({ teamMembersData }) => {
   const { memberId } = useParams();
 
-  // Find the member with the specified ID
+  // Find member by integer comparison
   const member = teamMembersData.find(
-    (member) => member.id === parseInt(memberId)
+    (member) => member.id === parseInt(memberId, 10)
   );
 
+  // Guard against member being undefined
+  if (!member) {
+    return <div>Member not found.</div>;
+  }
   // Refs for GSAP animations
   const bgRef = useRef(null);
   const overlayRef = useRef(null);
